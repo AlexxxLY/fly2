@@ -1,7 +1,5 @@
 <?php
 
-//define('COUNT_ARRAY', 16);
-
 $a = [];
 $b = [];
 $c = [];
@@ -16,41 +14,32 @@ function arr_rand($arr, $max, $min, $count)
     return $arr;
 }
 
-function positive_($arr)
+function separation($arr, $arr_positive, $arr_negative)
 {
 
     $result = [];
-    $num = 0;
+    $num_p = 0;
+    $num_n = 0;
     for ($i = 0; $i < count($arr); $i++) {
         if ($arr[$i] > 0) {
-            $result[$num] = $arr[$i];
-            $num++;
+            $arr_positive[$num_p] = $arr[$i];
+            $num_p++;
+        }
+        elseif($arr[$i] < 0){
+            $arr_negative[$num_n] = $arr[$i];
+            $num_n++;
         }
     }
-
-    return $result;
-}
-
-function negative_($arr)
-{
-
-    $result = [];
-    $num = 0;
-    for ($i = 0; $i < count($arr); $i++) {
-        if ($arr[$i] < 0) {
-            $result[$num] = $arr[$i];
-            $num++;
-        }
-    }
-
-    return $result;
+    return array($arr_positive, $arr_negative);
 }
 
 $a = arr_rand($a, -10, 10, 16);
 print_r($a);
-$b = positive_($a);
+
+$b = separation($a, $b, $c)[0];
 print_r($b);
-$c = negative_($a);
+
+$c = separation($a, $b, $c)[1];
 print_r($c);
 
 if(count($b) > count($c)){
