@@ -24,8 +24,7 @@ function separation($arr, $arr_positive, $arr_negative)
         if ($arr[$i] > 0) {
             $arr_positive[$num_p] = $arr[$i];
             $num_p++;
-        }
-        elseif($arr[$i] < 0){
+        } elseif ($arr[$i] < 0) {
             $arr_negative[$num_n] = $arr[$i];
             $num_n++;
         }
@@ -42,9 +41,8 @@ print_r($b);
 $c = separation($a, $b, $c)[1];
 print_r($c);
 
-if(count($b) > count($c)){
-    echo 'count $b > $c   $b= '.count($b);
-}
-else{
-    echo 'count $c > $b   $c= '.count($c);
+if (count($b) > count($c)) {
+    echo 'count $b > $c   $b= ' . count($b);
+} else {
+    echo 'count $c > $b   $c= ' . count($c);
 }
