@@ -20,9 +20,11 @@ function positive_($arr)
 {
 
     $result = [];
+    $num = 0;
     for ($i = 0; $i < count($arr); $i++) {
         if ($arr[$i] > 0) {
-            $result[$i] = $arr[$i];
+            $result[$num] = $arr[$i];
+            $num++;
         }
     }
 
@@ -33,9 +35,11 @@ function negative_($arr)
 {
 
     $result = [];
+    $num = 0;
     for ($i = 0; $i < count($arr); $i++) {
         if ($arr[$i] < 0) {
-            $result[$i] = $arr[$i];
+            $result[$num] = $arr[$i];
+            $num++;
         }
     }
 
@@ -43,8 +47,15 @@ function negative_($arr)
 }
 
 $a = arr_rand($a, -10, 10, 16);
-print_r(arr_rand($a, -10, 10, 16));
+print_r($a);
 $b = positive_($a);
 print_r($b);
 $c = negative_($a);
 print_r($c);
+
+if(count($b) > count($c)){
+    echo 'count $b > $c   $b= '.count($b);
+}
+else{
+    echo 'count $c > $b   $c= '.count($c);
+}
